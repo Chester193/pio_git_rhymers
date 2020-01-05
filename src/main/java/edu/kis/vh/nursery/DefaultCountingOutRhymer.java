@@ -6,22 +6,26 @@ public class DefaultCountingOutRhymer {
     private final int DEFAULT_VALUE = -1;
     private final int[] NUMBERS = new int[CAPACITY];
 
-    public int total = DEFAULT_VALUE;
+    public int getTotal() {
+        return total;
+    }
+
+    private int total = DEFAULT_VALUE;
 
     public void countIn(int in) {
         if (!isFull())
             NUMBERS[++total] = in;
     }
 
-    public boolean callCheck() {
+    boolean callCheck() {
         return total == DEFAULT_VALUE;
     }
 
-    public boolean isFull() {
+    boolean isFull() {
         return total == 11;
     }
 
-    protected int peekaboo() {
+    int peekaboo() {
         if (callCheck())
             return DEFAULT_VALUE;
         return NUMBERS[total];
